@@ -121,7 +121,7 @@ if uploaded_file is not None:
             hide_index=True
         )
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3, col4 = st.columns(4)
 
         task_event_count = sum(
             bool(x.get("task_or_event"))
@@ -133,9 +133,10 @@ if uploaded_file is not None:
         )
 
         unresolved_dates = sum(
-            x.get("task_or_event")
-            and x["task_or_event"].get("date_or_deadline") is None
+            1
             for x in results
+            if x.get("task_or_event")
+            and x["task_or_event"].get("date_or_deadline") is None
         )
 
         with col1:
@@ -155,7 +156,11 @@ if uploaded_file is not None:
                 "Sensitive Messages",
                 sensitive_count
             )
-
+        with col4:
+            st.metric(
+                "Unresolved Dates",
+                unresolved_dates
+            )
         st.subheader("Search Message")
 
         message_ids = result_df["message_id"].astype(str).tolist()
