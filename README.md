@@ -142,6 +142,7 @@ Example:
   "confidence": 0.91,
   "reason": "The message asks the recipient to complete an action."
 }
+```
 ---
 
 ## 4.2 Sensitive Information Detection
@@ -839,9 +840,9 @@ The category counts add up to 900 processed messages.
 The validation results were:
 
 ```text
-Task/Event records: 348
-Unresolved dates: 15
-Unresolved priorities: 3
+Task/Event records: 350
+Unresolved dates: 11
+Unresolved priorities: 0
 ```
 
 The unresolved values do not necessarily indicate a failure.
